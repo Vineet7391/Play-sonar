@@ -9,8 +9,9 @@ lazy val root = (project in file(".")).enablePlugins(PlayScala)
   .settings(
     excludes,
     sonarProperties := Map(
-       "sonar.java.coveragePlugin" -> "jacoco",
-      "sonar.coverage.jacoco.xmlReportPaths" -> "target/scala-2.13/jacoco/report/jacoco.xml"
+      "sonar.java.coveragePlugin" -> "jacoco",
+      "sonar.coverage.jacoco.xmlReportPaths" -> "/home/runner/work/Play-sonar/Play-sonar/target/scala-2.13/jacoco/report/jacoco.xml",
+      "sonar.exclusions" -> "test/**"
     ),
   )
 

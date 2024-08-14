@@ -15,5 +15,3 @@ jobs:
           cache: sbt
       - name: Run SonarQube Analysis
         run: sbt jacoco sonarScan -D"sonar.projectKey=Vineet7391_Play-sonar-" -D"sonar.organization=vineet7391" -D"sonar.host.url=https://sonarcloud.io" -D"sonar.login=${{ secrets.SONAR_TOKAN_LOGIN }}"
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

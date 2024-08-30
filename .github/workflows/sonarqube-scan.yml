@@ -22,4 +22,5 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         with:
-          args: -Dproject.settings=sonar-project.properties
+          args: -Dproject.settings=${project}/sonar-project.properties
+

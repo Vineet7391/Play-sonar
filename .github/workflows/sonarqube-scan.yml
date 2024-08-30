@@ -16,12 +16,6 @@ jobs:
       - name: Run SonarQube Analysis
         run: sbt clean compile coverage test coverageReport
 
-      - name: Install SonarQube Scanner
-        run: |
-          curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-          sudo apt-get install -y nodejs
-          npm install -g sonar-scanner
-
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master
         env:

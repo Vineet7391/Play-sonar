@@ -19,8 +19,8 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin' # or 'zulu', 'adopt', etc. depending on your preference
-          java-version: '17'  # Update to Java 17
+          distribution: 'temurin' # or your preferred distribution like 'zulu', 'adopt'
+          java-version: '17'  # Specify Java 17
 
       - name: Cache SBT dependencies
         uses: actions/cache@v3
@@ -37,6 +37,8 @@ jobs:
         uses: olafurpg/setup-scala@v12
 
       - name: Run tests with Scoverage
+        env:
+          JAVA_HOME: /usr/lib/jvm/temurin-17-jdk-amd64  # Ensure JAVA_HOME is set correctly
         run: sbt clean coverage test coverageReport
 
       - name: Install SonarQube Scanner
@@ -47,6 +49,7 @@ jobs:
 
       - name: Run SonarQube Scan
         env:
+          JAVA_HOME: /usr/lib/jvm/temurin-17-jdk-amd64  # Ensure JAVA_HOME is set correctly
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}

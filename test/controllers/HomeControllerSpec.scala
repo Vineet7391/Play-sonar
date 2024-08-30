@@ -53,7 +53,7 @@ class HomeControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting
 
     "Check None" in {
       val controller = new HomeController(stubControllerComponents())
-      val string2 = "Not"
+      val string2 = "None"
       val int2 = controller.stringIntoOption(string2)
       int2.canEqual(None)
     }

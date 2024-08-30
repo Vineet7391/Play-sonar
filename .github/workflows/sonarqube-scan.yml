@@ -1,62 +1,17 @@
-name: SonarQube Scan
+name: Run SonarQube with SBT
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+on: push
 
 jobs:
-  sonar:
+  sonar_scan:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
+      - uses: actions/checkout@v4
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin' # or your preferred distribution like 'zulu', 'adopt'
-          java-version: '17'  # Specify Java 17
-
-      - name: Cache SBT dependencies
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.ivy2/cache
-            ~/.sbt
-            ~/.coursier
-          key: ${{ runner.os }}-sbt-${{ hashFiles('**/build.sbt') }}
-          restore-keys: |
-            ${{ runner.os }}-sbt-
-
-      - name: Set up SBT
-        uses: olafurpg/setup-scala@v12
-
-      - name: Run tests with Scoverage
-        env:
-          JAVA_HOME: /usr/lib/jvm/temurin-17-jdk-amd64  # Ensure JAVA_HOME is set correctly
-        run: sbt clean coverage test coverageReport
-
-      - name: Install SonarQube Scanner
-        run: |
-          curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-          sudo apt-get install -y nodejs
-          npm install -g sonar-scanner
-
-      - name: Run SonarQube Scan
-        env:
-          JAVA_HOME: /usr/lib/jvm/temurin-17-jdk-amd64  # Ensure JAVA_HOME is set correctly
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-          SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
-        run: |
-          sonar-scanner \
-          -Dsonar.token=sqp_b503e263e344658b0feb1073a102cc778d95ef95 \
-          -Dsonar.projectKey=Play_local \
-          -Dsonar.sources=app \
-          -Dsonar.tests=test \
-          -Dsonar.scala.scoverage.reportPath=target/scala-2.13/scoverage-report/scoverage.xml
+          java-version: '17'
+          distribution: 'temurin'
+          cache: sbt
+      - name: Run SonarQube Analysis
+        run: sbt clean compile coverage test coverageReport

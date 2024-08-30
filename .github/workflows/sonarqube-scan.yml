@@ -48,6 +48,12 @@ jobs:
       - name: Run SonarQube Scan
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secret.SONAR_HOST_URL}}
-          SONAR_PROJECT_KEY: ${{SONAR_PROJECT_KEY}}
-        run: sonar-scanner
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}  # Correct secret reference
+          SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}  # Correct secret reference
+        run: |
+          sonar-scanner \
+          -Dsonar.token=sqp_b503e263e344658b0feb1073a102cc778d95ef95 \
+          -Dsonar.projectKey=Play_local \
+          -Dsonar.sources=app \
+          -Dsonar.tests=test \
+          -Dsonar.scala.scoverage.reportPath=target/scala-2.13/scoverage-report/scoverage.xml

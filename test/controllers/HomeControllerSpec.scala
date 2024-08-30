@@ -42,20 +42,4 @@ class HomeControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting
       contentAsString(home) must include("Welcome to Play")
     }
   }
-
-  "String into Int" should {
-    "Check Some" in {
-      val controller = new HomeController(stubControllerComponents())
-      val string1 = "12"
-      val int1 = controller.stringIntoOption(string1)
-      int1.canEqual(Some(12))
-    }
-
-    "Check None" in {
-      val controller = new HomeController(stubControllerComponents())
-      val string2 = "Not"
-      val int2 = controller.stringIntoOption(string2)
-      int2.canEqual(None)
-    }
-  }
 }

@@ -16,10 +16,7 @@ jobs:
       - name: Run SonarQube Analysis
         run: sbt clean compile coverage test coverageReport
         working-directory: /home/runner/work/Play-sonar/Play-sonar
-
-      - name: Create symbolic link for scoverage report
-        run: ln -s /home/runner/work/Play-sonar/Play-sonar/target/scala-2.13/scoverage-report/scoverage.xml /github/workspace/target/scala-2.13/scoverage-report/scoverage.xml
-
+    
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master
         env:

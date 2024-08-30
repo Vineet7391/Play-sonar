@@ -21,7 +21,7 @@ class HomeControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting
 
       status(home) mustBe OK
       contentType(home) mustBe Some("text/html")
-      contentAsString(home) must include ("Welcome to Play")
+      contentAsString(home) must include("Welcome to Play")
     }
 
     "render the index page from the application" in {
@@ -30,7 +30,7 @@ class HomeControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting
 
       status(home) mustBe OK
       contentType(home) mustBe Some("text/html")
-      contentAsString(home) must include ("Welcome to Play")
+      contentAsString(home) must include("Welcome to Play")
     }
 
     "render the index page from the router" in {
@@ -39,7 +39,23 @@ class HomeControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting
 
       status(home) mustBe OK
       contentType(home) mustBe Some("text/html")
-      contentAsString(home) must include ("Welcome to Play")
+      contentAsString(home) must include("Welcome to Play")
+    }
+  }
+
+  "String into Int" should {
+    "Check Some" in {
+      val controller = new HomeController(stubControllerComponents())
+      val string1 = "12"
+      val int1 = controller.stringIntoOption(string1)
+      int1.canEqual(Some(12))
+    }
+
+    "Check None" in {
+      val controller = new HomeController(stubControllerComponents())
+      val string2 = "Not"
+      val int2 = controller.stringIntoOption(string2)
+      int2.canEqual(None)
     }
   }
 }

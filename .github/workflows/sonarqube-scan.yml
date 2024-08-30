@@ -22,13 +22,10 @@ jobs:
           sudo apt-get install -y nodejs
           npm install -g sonar-scanner
 
-      - name: Run SonarQube Scan
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@master
         env:
-          JAVA_HOME: /usr/lib/jvm/temurin-17-jdk-amd64  # Ensure JAVA_HOME is set correctly
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-          SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
-        run: |
-          sonar-scanner \
-          -Dsonar.token=25bddfb75682855adc6e9c52b179f6079b94bd78 \
-          -Dproject.settings=sonar-project.properties
+        with:
+          args: -Dproject.settings=sonar-project.properties

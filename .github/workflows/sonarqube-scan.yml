@@ -25,4 +25,3 @@ jobs:
         with:
           args: >
             -Dproject.settings=sonar-project.properties
-            -Dsonar.scala.coverage.reportPaths=/home/runner/work/Play-sonar/Play-sonar/target/scala-2.13/scoverage-report/scoverage.xml

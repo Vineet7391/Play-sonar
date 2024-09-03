@@ -10,9 +10,9 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
-          jvm: 11
-          distribution: adopt
-          apps: sbt
+          java-version: '17'
+          distribution: 'temurin'
+          cache: sbt
       - name: Run SonarQube Analysis
         run: sbt clean compile coverage test coverageReport
         working-directory: /home/runner/work/Play-sonar/Play-sonar

@@ -10,7 +10,8 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
-          jvm: adopt:11
+          jvm: 11
+          distribution: adopt
           apps: sbt
       - name: Run SonarQube Analysis
         run: sbt clean compile coverage test coverageReport

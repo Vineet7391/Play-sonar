@@ -16,7 +16,7 @@ jobs:
           cache: sbt
 
       - name: Run SonarQube Analysis
-        run: docker run --rm --volume ${{ github.workspace }}:/github/workspace --volume ~/.ivy2:/root/.ivy2 --workdir /github/workspace your-docker-image /usr/bin/bash -c "sbt clean compile coverage test coverageReport"
+        run:  sbt clean compile coverage test coverageReport
 
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master

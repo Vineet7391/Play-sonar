@@ -16,10 +16,12 @@ jobs:
           cache: sbt
 
       - name: Run SonarQube Analysis
-        run:  sbt clean compile coverage test coverageReport
+        run: sbt clean compile coverage test coverageReport
+        working-directory: ./github/workspace
 
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        working-directory: ./github/workspace

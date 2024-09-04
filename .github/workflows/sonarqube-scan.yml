@@ -15,7 +15,7 @@ jobs:
           cache: sbt
       - name: Run SonarQube Analysis
         run: sbt clean compile coverage test coverageReport
-        working-directory: /home/runner/work/Play-sonar/Play-sonar
+        working-directory: ./Play-sonar
 
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master

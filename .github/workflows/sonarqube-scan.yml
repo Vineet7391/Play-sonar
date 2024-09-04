@@ -7,15 +7,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'temurin'
           cache: sbt
+
       - name: Run SonarQube Analysis
         run: sbt clean compile coverage test coverageReport
-#        working-directory: ./Play-sonar
+
+      - name: Create Symlink for Scoverage Report
+        run: ln -s /home/runner/work/Play-sonar/Play-sonar/target/scala-2.13/scoverage-report/scoverage.xml /github/workspace/target/scala-2.13/scoverage-report/scoverage.xml
 
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master

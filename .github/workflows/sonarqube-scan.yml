@@ -18,17 +18,10 @@ jobs:
       - name: Run SonarQube Analysis
         run: sbt clean compile coverage test coverageReport
 
-      - name: Create Directory for Scoverage Report
-        run: mkdir -p /github/workspace/target/scala-2.13/scoverage-report
-
-      - name: Create Symlink for Scoverage Report
-        run: ln -sf /home/runner/work/Play-sonar/Play-sonar/Play-sonar/target/scala-2.13/scoverage-report/scoverage.xml /github/workspace/target/scala-2.13/scoverage-report
-
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         with:
-          projectBaseDir: ${{ github.workspace }}/Play-sonar
           args: -Dproject.settings=sonar-project.properties

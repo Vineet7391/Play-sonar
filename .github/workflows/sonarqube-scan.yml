@@ -18,6 +18,9 @@ jobs:
       - name: Run SonarQube Analysis
         run: sbt clean compile coverage test coverageReport
 
+      - name: Create Directory for Scoverage Report
+        run: mkdir -p /github/workspace/target/scala-2.13/scoverage-report
+
       - name: Create Symlink for Scoverage Report
         run: ln -s /home/runner/work/Play-sonar/Play-sonar/target/scala-2.13/scoverage-report/scoverage.xml /github/workspace/target/scala-2.13/scoverage-report/scoverage.xml
 

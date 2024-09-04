@@ -16,14 +16,16 @@ jobs:
           cache: sbt
 
       - name: Run SonarQube Analysis
-        run: sbt clean compile coverage test coverageReport
+        run: docker run --rm \
+              --volume ${{ github.workspace }}:/github/workspace \
+              --volume ~/.ivy2:/root/.ivy2 \
+              --workdir /github/workspace \
+              ${{ env.BUILD_IMAGE }} \
+              /usr/bin/bash -c "sbt clean compile coverage test coverageReport"
 
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master
-        with:
-          args: >
-            -Dsonar.projectBaseDir=.
-            -Dsonar.scala.scoverage.reportPath=target/scala-2.13/scoverage-report/scoverage.xml
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+

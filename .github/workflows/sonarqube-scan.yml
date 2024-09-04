@@ -20,8 +20,10 @@ jobs:
 
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master
+        with:
+          args: >
+            -Dsonar.projectBaseDir=.
+            -Dsonar.scala.scoverage.reportPath=target/scala-2.13/scoverage-report/scoverage.xml
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        with:
-          args: -Dproject.settings=sonar-project.properties

@@ -14,8 +14,6 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: sbt
-
-
       - name: Run SonarQube Analysis
         run:  sbt clean compile coverage test coverageReport
 

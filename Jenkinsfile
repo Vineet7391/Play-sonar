@@ -1,20 +1,44 @@
-node {
-  stage('SCM') {
-    git 'https://github.com/Vineet7391/Play-sonar.git'
-  }
+pipeline {
+    agent any
 
-  stage('Build and Test') {
-    sh 'sbt clean coverage test'
-  }
-
-  stage('Coverage Report') {
-    sh 'sbt coverageReport'
-  }
-
-  stage('SonarQube analysis') {
-    def scannerHome = tool 'sonar-scanner'; // Must match the name of an actual scanner installation directory on your Jenkins build agent
-    withSonarQubeEnv('sonar-scanner') { // If you have configured more than one global server connection, you can specify its name as configured in Jenkins
-      sh "${scannerHome}/bin/sonar-scanner"
+    triggers {
+        pollSCM('* * * * *') // Polls the SCM every minute. You can adjust the schedule as needed.
     }
-  }
+
+    stages {
+        stage('SCM') {
+            steps {
+                git 'https://github.com/Vineet7391/Play-sonar.git'
+            }
+        }
+
+        stage('Build and Test') {
+            steps {
+                sh 'sbt clean coverage test'
+            }
+        }
+
+        stage('Coverage Report') {
+            steps {
+                sh 'sbt coverageReport'
+            }
+        }
+
+        stage('SonarQube analysis') {
+            steps {
+                script {
+                    def scannerHome = tool 'sonar-scanner1'
+                    withSonarQubeEnv('sonar-scanner1') {
+                        sh "${scannerHome}/bin/sonar-scanner"
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'This pipeline runs for any branch.'
+        }
+    }
 }

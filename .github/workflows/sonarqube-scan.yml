@@ -19,10 +19,10 @@ jobs:
         run: sbt clean compile coverage test coverageReport
 
       - name: Create Directory for Scoverage Report
-        run: mkdir -p target/scala-2.13/scoverage-report
+        run: mkdir -p /github/workspace/target/scala-2.13/scoverage-report
 
       - name: Create Symlink for Scoverage Report
-        run: ln -s ${{ github.workspace }}/Play-sonar/target/scala-2.13/scoverage-report/scoverage.xml target/scala-2.13/scoverage-report/scoverage.xml
+        run: ln -sf /home/runner/work/Play-sonar/Play-sonar/Play-sonar/target/scala-2.13/scoverage-report/scoverage.xml /github/workspace/target/scala-2.13/scoverage-report
 
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master

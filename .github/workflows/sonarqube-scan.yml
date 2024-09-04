@@ -14,13 +14,10 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: sbt
-      - name: Ensure workspace directory exists
-        run: mkdir -p github/workspace
+
 
       - name: Run SonarQube Analysis
-        run: |
-         cd github/workspace 
-         sbt clean compile coverage test coverageReport
+        run:  sbt clean compile coverage test coverageReport
 
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master

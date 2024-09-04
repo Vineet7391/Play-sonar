@@ -24,5 +24,4 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           with:
             projectBaseDir: /home/runner/work/Play-sonar/Play-sonar
-            args: >
-              -Dproject.settings=sonar-project.properties
+            args: -Dproject.settings=sonar-project.properties

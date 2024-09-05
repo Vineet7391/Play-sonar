@@ -24,4 +24,4 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-          SONAR_SCANNER_OPTS: "-Dsonar.projectBaseDir= /home/runner/work/Play-sonar/Play-sonar"
+          SONAR_SCANNER_OPTS: "-Dsonar.projectBaseDir= /home/runner/work/Play-sonar"

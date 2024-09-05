@@ -15,9 +15,12 @@ jobs:
           distribution: 'temurin'
           cache: sbt
 
+      - name: Save GitHub Workspace Path
+        run: echo "GITHUB_WORKSPACE_PATH=${{ github.workspace }}" >> $GITHUB_ENV
+
       - name: Run SonarQube Analysis
         run:  sbt clean compile coverage test coverageReport
-
+        working-directory: ${{ github.workspace }}
 
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master

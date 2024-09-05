@@ -17,7 +17,7 @@ jobs:
 
 
       - name: Run SonarQube Analysis
-        run:  sbt clean compile coverage test coverageReport
+        run:  sbt -Dtarget.dir=/github/workspace/target clean compile coverage test coverageReport
 
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master

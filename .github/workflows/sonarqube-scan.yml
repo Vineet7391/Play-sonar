@@ -5,9 +5,7 @@ on: push
 jobs:
   sonar_scan:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: /home/runner/work/Play-sonar/Play-sonar
+
     steps:
       - uses: actions/checkout@v4
 
@@ -27,3 +25,5 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          with:
+            projectBaseDir: /home/runner/work/Play-sonar/Play-sonar

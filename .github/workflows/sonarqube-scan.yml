@@ -18,6 +18,8 @@ jobs:
 
       - name: Run SonarQube Analysis
         run:  sbt -Dtarget.dir=/github/workspace/target clean compile coverage test coverageReport
+        working-directory: /github/workspace  # Set working directory
+
 
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master

@@ -5,6 +5,9 @@ on: push
 jobs:
   sonar_scan:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: /home/runner/work/Play-sonar/Play-sonar
     steps:
       - uses: actions/checkout@v4
 
@@ -15,12 +18,9 @@ jobs:
           distribution: 'temurin'
           cache: sbt
 
-      - name: Save GitHub Workspace Path
-        run: echo "GITHUB_WORKSPACE_PATH=${{ github.workspace }}" >> $GITHUB_ENV
 
       - name: Run SonarQube Analysis
         run:  sbt clean compile coverage test coverageReport
-        working-directory: ${{ github.workspace }}
 
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master

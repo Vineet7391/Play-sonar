@@ -15,10 +15,10 @@ jobs:
           distribution: 'temurin'
           cache: sbt
 
-
+      - name: Set SONAR_SCANNER_OPTS
+        run: echo "SONAR_SCANNER_OPTS=-Dsonar.projectBaseDir=/github/workspace/" >> $GITHUB_ENV
       - name: Run SonarQube Analysis
-        run:  sbt -Dtarget.dir=/github/workspace/target clean compile coverage test coverageReport
-        working-directory: /github/workspace  # Set working directory
+        run:  sbt clean compile coverage test coverageReport
 
 
       - name: SonarQube Scan

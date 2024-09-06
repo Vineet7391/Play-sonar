@@ -28,9 +28,6 @@ jobs:
           echo "SONAR_SCANNER=$(pwd)/sonar-scanner/bin/sonar-scanner" >> $GITHUB_ENV
           echo "SONAR_PATH=$(pwd)/sonar-scanner/bin" >> $GITHUB_ENV
 
-      - name: Add SonarQube Scanner to PATH
-        run: echo "$SONAR_PATH" >> $GITHUB_PATH
-
       - name: Set Java 17 for SonarQube Scanner
         run: |
           export JAVA_HOME=/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.12-7/x64

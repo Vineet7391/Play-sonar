@@ -1,0 +1,407 @@
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title id="title">
+          views\html\index.template.scala.html
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script>
+        <style>
+          table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } 
+        </style>
+      </head>
+      <body style="font-family: monospace;">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#codegrid" data-toggle="tab">Codegrid</a>
+          </li>
+          <li>
+            <a href="#statementlist" data-toggle="tab">Statement List</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="codegrid">
+            <pre style='font-size: 12pt; font-family: courier, monospace;'>1 <span style=''>
+</span>2 <span style=''>package views.html
+</span>3 <span style=''>
+</span>4 <span style=''>import _root_.play.twirl.api.TwirlFeatureImports._
+</span>5 <span style=''>import _root_.play.twirl.api.TwirlHelperImports._
+</span>6 <span style=''>import _root_.play.twirl.api.Html
+</span>7 <span style=''>import _root_.play.twirl.api.JavaScript
+</span>8 <span style=''>import _root_.play.twirl.api.Txt
+</span>9 <span style=''>import _root_.play.twirl.api.Xml
+</span>10 <span style=''>import models._
+</span>11 <span style=''>import controllers._
+</span>12 <span style=''>import play.api.i18n._
+</span>13 <span style=''>import views.html._
+</span>14 <span style=''>import play.api.templates.PlayMagic._
+</span>15 <span style=''>import play.api.mvc._
+</span>16 <span style=''>import play.api.data._
+</span>17 <span style=''>
+</span>18 <span style=''>object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template0[play.twirl.api.HtmlFormat.Appendable] {
+</span>19 <span style=''>
+</span>20 <span style=''>  /**/
+</span>21 <span style=''>  def apply/*1.2*/():play.twirl.api.HtmlFormat.Appendable = {
+</span>22 <span style=''>    </span><span style='background: #AEF1AE'>_display_ {
+</span>23 <span style=''></span><span style='background: #AEF1AE'>      {
+</span>24 <span style=''></span><span style='background: #AEF1AE'>
+</span>25 <span style=''></span><span style='background: #AEF1AE'>
+</span>26 <span style=''></span><span style='background: #AEF1AE'>Seq[Any](format.raw/*1.4*/(&quot;&quot;&quot;
+</span>27 <span style=''></span><span style='background: #AEF1AE'>
+</span>28 <span style=''></span><span style='background: #AEF1AE'>&quot;&quot;&quot;),_display_(/*3.2*/main(&quot;Welcome to Play&quot;)/*3.25*/ {_display_(Seq[Any](format.raw/*3.27*/(&quot;&quot;&quot;
+</span>29 <span style=''></span><span style='background: #AEF1AE'>  &quot;&quot;&quot;),format.raw/*4.3*/(&quot;&quot;&quot;&lt;h1&gt;Welcome to Play from PRO-001!&lt;/h1&gt;
+</span>30 <span style=''></span><span style='background: #AEF1AE'>&quot;&quot;&quot;)))}),format.raw/*5.2*/(&quot;&quot;&quot;
+</span>31 <span style=''></span><span style='background: #AEF1AE'>&quot;&quot;&quot;))
+</span>32 <span style=''></span><span style='background: #AEF1AE'>      }
+</span>33 <span style=''></span><span style='background: #AEF1AE'>    }</span><span style=''>
+</span>34 <span style=''>  }
+</span>35 <span style=''>
+</span>36 <span style=''>  def render(): play.twirl.api.HtmlFormat.Appendable = </span><span style='background: #F0ADAD'>apply()</span><span style=''>
+</span>37 <span style=''>
+</span>38 <span style=''>  def f:(() =&gt; play.twirl.api.HtmlFormat.Appendable) = () =&gt; </span><span style='background: #F0ADAD'>apply()</span><span style=''>
+</span>39 <span style=''>
+</span>40 <span style=''>  def ref: this.type = this
+</span>41 <span style=''>
+</span>42 <span style=''>}
+</span>43 <span style=''>
+</span>44 <span style=''>
+</span>45 <span style=''>              /*
+</span>46 <span style=''>                  -- GENERATED --
+</span>47 <span style=''>                  SOURCE: app/views/index.scala.html
+</span>48 <span style=''>                  HASH: 5f4518714f2bf5cefe92fc44468b1531724de4d2
+</span>49 <span style=''>                  MATRIX: 722-&gt;1|818-&gt;3|848-&gt;8|879-&gt;31|918-&gt;33|948-&gt;37|1018-&gt;78
+</span>50 <span style=''>                  LINES: 21-&gt;1|26-&gt;1|28-&gt;3|28-&gt;3|28-&gt;3|29-&gt;4|30-&gt;5
+</span>51 <span style=''>                  -- GENERATED --
+</span>52 <span style=''>              */
+</span>53 <span style=''>          
+</span></pre>
+          </div>
+          <div class="tab-pane" id="statementlist">
+            <table cellspacing="0" cellpadding="0" class="table statementlist">
+      <tr>
+        <th>Line</th>
+        <th>Stmt Id</th>
+        <th>Pos</th>
+        <th>Tree</th>
+        <th>Symbol</th>
+        <th>Tests</th>
+        <th>Code</th>
+      </tr><tr>
+        <td>
+          22
+        </td>
+        <td>
+          106
+        </td>
+        <td>
+          770
+          -
+          1043
+        </td>
+        <td>
+          ApplyToImplicitArgs
+        </td>
+        <td>
+          play.twirl.api.BaseScalaTemplate._display_
+        </td>
+        <td>
+          controllers.homecontrollerspec
+        </td>
+        <td style="background: #AEF1AE">
+          index.this._display_(scala.`package`.Seq.apply[Any](index.this.format.raw(&quot;\r\n\r\n&quot;), index.this._display_(views.html.main.apply(&quot;Welcome to Play&quot;)(index.this._display_(scala.`package`.Seq.apply[Any](index.this.format.raw(&quot;\r\n  &quot;), index.this.format.raw(&quot;&lt;h1&gt;Welcome to Play from PRO-001!&lt;/h1&gt;\r\n&quot;)))((ClassTag.apply[play.twirl.api.HtmlFormat.Appendable](classOf[play.twirl.api.Html]): scala.reflect.ClassTag[play.twirl.api.HtmlFormat.Appendable])))), index.this.format.raw(&quot;\r\n&quot;)))((ClassTag.apply[play.twirl.api.HtmlFormat.Appendable](classOf[play.twirl.api.Html]): scala.reflect.ClassTag[play.twirl.api.HtmlFormat.Appendable]))
+        </td>
+      </tr><tr>
+        <td>
+          26
+        </td>
+        <td>
+          96
+        </td>
+        <td>
+          801
+          -
+          830
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          play.twirl.api.Format.raw
+        </td>
+        <td>
+          controllers.homecontrollerspec
+        </td>
+        <td style="background: #AEF1AE">
+          index.this.format.raw(&quot;\r\n\r\n&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          26
+        </td>
+        <td>
+          105
+        </td>
+        <td>
+          792
+          -
+          1029
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.collection.SeqFactory.Delegate.apply
+        </td>
+        <td>
+          controllers.homecontrollerspec
+        </td>
+        <td style="background: #AEF1AE">
+          scala.`package`.Seq.apply[Any](index.this.format.raw(&quot;\r\n\r\n&quot;), index.this._display_(views.html.main.apply(&quot;Welcome to Play&quot;)(index.this._display_(scala.`package`.Seq.apply[Any](index.this.format.raw(&quot;\r\n  &quot;), index.this.format.raw(&quot;&lt;h1&gt;Welcome to Play from PRO-001!&lt;/h1&gt;\r\n&quot;)))((ClassTag.apply[play.twirl.api.HtmlFormat.Appendable](classOf[play.twirl.api.Html]): scala.reflect.ClassTag[play.twirl.api.HtmlFormat.Appendable])))), index.this.format.raw(&quot;\r\n&quot;))
+        </td>
+      </tr><tr>
+        <td>
+          28
+        </td>
+        <td>
+          101
+        </td>
+        <td>
+          881
+          -
+          998
+        </td>
+        <td>
+          ApplyToImplicitArgs
+        </td>
+        <td>
+          play.twirl.api.BaseScalaTemplate._display_
+        </td>
+        <td>
+          controllers.homecontrollerspec
+        </td>
+        <td style="background: #AEF1AE">
+          index.this._display_(scala.`package`.Seq.apply[Any](index.this.format.raw(&quot;\r\n  &quot;), index.this.format.raw(&quot;&lt;h1&gt;Welcome to Play from PRO-001!&lt;/h1&gt;\r\n&quot;)))((ClassTag.apply[play.twirl.api.HtmlFormat.Appendable](classOf[play.twirl.api.Html]): scala.reflect.ClassTag[play.twirl.api.HtmlFormat.Appendable]))
+        </td>
+      </tr><tr>
+        <td>
+          28
+        </td>
+        <td>
+          98
+        </td>
+        <td>
+          900
+          -
+          930
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          play.twirl.api.Format.raw
+        </td>
+        <td>
+          controllers.homecontrollerspec
+        </td>
+        <td style="background: #AEF1AE">
+          index.this.format.raw(&quot;\r\n  &quot;)
+        </td>
+      </tr><tr>
+        <td>
+          28
+        </td>
+        <td>
+          100
+        </td>
+        <td>
+          891
+          -
+          997
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.collection.SeqFactory.Delegate.apply
+        </td>
+        <td>
+          controllers.homecontrollerspec
+        </td>
+        <td style="background: #AEF1AE">
+          scala.`package`.Seq.apply[Any](index.this.format.raw(&quot;\r\n  &quot;), index.this.format.raw(&quot;&lt;h1&gt;Welcome to Play from PRO-001!&lt;/h1&gt;\r\n&quot;))
+        </td>
+      </tr><tr>
+        <td>
+          28
+        </td>
+        <td>
+          103
+        </td>
+        <td>
+          831
+          -
+          1000
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          play.twirl.api.BaseScalaTemplate._display_
+        </td>
+        <td>
+          controllers.homecontrollerspec
+        </td>
+        <td style="background: #AEF1AE">
+          index.this._display_(views.html.main.apply(&quot;Welcome to Play&quot;)(index.this._display_(scala.`package`.Seq.apply[Any](index.this.format.raw(&quot;\r\n  &quot;), index.this.format.raw(&quot;&lt;h1&gt;Welcome to Play from PRO-001!&lt;/h1&gt;\r\n&quot;)))((ClassTag.apply[play.twirl.api.HtmlFormat.Appendable](classOf[play.twirl.api.Html]): scala.reflect.ClassTag[play.twirl.api.HtmlFormat.Appendable]))))
+        </td>
+      </tr><tr>
+        <td>
+          28
+        </td>
+        <td>
+          97
+        </td>
+        <td>
+          853
+          -
+          870
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td>
+          controllers.homecontrollerspec
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;Welcome to Play&quot;
+        </td>
+      </tr><tr>
+        <td>
+          28
+        </td>
+        <td>
+          102
+        </td>
+        <td>
+          848
+          -
+          999
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          views.html.main.apply
+        </td>
+        <td>
+          controllers.homecontrollerspec
+        </td>
+        <td style="background: #AEF1AE">
+          views.html.main.apply(&quot;Welcome to Play&quot;)(index.this._display_(scala.`package`.Seq.apply[Any](index.this.format.raw(&quot;\r\n  &quot;), index.this.format.raw(&quot;&lt;h1&gt;Welcome to Play from PRO-001!&lt;/h1&gt;\r\n&quot;)))((ClassTag.apply[play.twirl.api.HtmlFormat.Appendable](classOf[play.twirl.api.Html]): scala.reflect.ClassTag[play.twirl.api.HtmlFormat.Appendable])))
+        </td>
+      </tr><tr>
+        <td>
+          29
+        </td>
+        <td>
+          99
+        </td>
+        <td>
+          931
+          -
+          996
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          play.twirl.api.Format.raw
+        </td>
+        <td>
+          controllers.homecontrollerspec
+        </td>
+        <td style="background: #AEF1AE">
+          index.this.format.raw(&quot;&lt;h1&gt;Welcome to Play from PRO-001!&lt;/h1&gt;\r\n&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          30
+        </td>
+        <td>
+          104
+        </td>
+        <td>
+          1001
+          -
+          1028
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          play.twirl.api.Format.raw
+        </td>
+        <td>
+          controllers.homecontrollerspec
+        </td>
+        <td style="background: #AEF1AE">
+          index.this.format.raw(&quot;\r\n&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          36
+        </td>
+        <td>
+          107
+        </td>
+        <td>
+          1104
+          -
+          1111
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          views.html.index.apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          index.this.apply()
+        </td>
+      </tr><tr>
+        <td>
+          38
+        </td>
+        <td>
+          108
+        </td>
+        <td>
+          1174
+          -
+          1181
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          views.html.index.apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          index.this.apply()
+        </td>
+      </tr>
+    </table>
+          </div>
+        </div>
+      </body>
+    </html>

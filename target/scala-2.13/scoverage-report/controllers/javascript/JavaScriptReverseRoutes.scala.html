@@ -1,0 +1,479 @@
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title id="title">
+          controllers\javascript\JavaScriptReverseRoutes.scala.html
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script>
+        <style>
+          table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } 
+        </style>
+      </head>
+      <body style="font-family: monospace;">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#codegrid" data-toggle="tab">Codegrid</a>
+          </li>
+          <li>
+            <a href="#statementlist" data-toggle="tab">Statement List</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="codegrid">
+            <pre style='font-size: 12pt; font-family: courier, monospace;'>1 <span style=''>// @GENERATOR:play-routes-compiler
+</span>2 <span style=''>// @SOURCE:conf/routes
+</span>3 <span style=''>
+</span>4 <span style=''>import play.api.routing.JavaScriptReverseRoute
+</span>5 <span style=''>
+</span>6 <span style=''>
+</span>7 <span style=''>import _root_.controllers.Assets.Asset
+</span>8 <span style=''>
+</span>9 <span style=''>// @LINE:7
+</span>10 <span style=''>package controllers.javascript {
+</span>11 <span style=''>
+</span>12 <span style=''>  // @LINE:7
+</span>13 <span style=''>  class ReverseHomeController(_prefix: =&gt; String) {
+</span>14 <span style=''>
+</span>15 <span style=''>    def _defaultPrefix: String = {
+</span>16 <span style=''>      if (</span><span style='background: #F0ADAD'>_prefix.endsWith(&quot;/&quot;)</span><span style=''>) </span><span style='background: #F0ADAD'>&quot;&quot;</span><span style=''> else </span><span style='background: #F0ADAD'>&quot;/&quot;</span><span style=''>
+</span>17 <span style=''>    }
+</span>18 <span style=''>
+</span>19 <span style=''>  
+</span>20 <span style=''>    // @LINE:7
+</span>21 <span style=''>    def index: JavaScriptReverseRoute = </span><span style='background: #F0ADAD'>JavaScriptReverseRoute(
+</span>22 <span style=''></span><span style='background: #F0ADAD'>      &quot;controllers.HomeController.index&quot;,
+</span>23 <span style=''></span><span style='background: #F0ADAD'>      &quot;&quot;&quot;
+</span>24 <span style=''></span><span style='background: #F0ADAD'>        function() {
+</span>25 <span style=''></span><span style='background: #F0ADAD'>          return _wA({method:&quot;GET&quot;, url:&quot;&quot;&quot;&quot; + _prefix + &quot;&quot;&quot;&quot;})
+</span>26 <span style=''></span><span style='background: #F0ADAD'>        }
+</span>27 <span style=''></span><span style='background: #F0ADAD'>      &quot;&quot;&quot;
+</span>28 <span style=''></span><span style='background: #F0ADAD'>    )</span><span style=''>
+</span>29 <span style=''>  
+</span>30 <span style=''>  }
+</span>31 <span style=''>
+</span>32 <span style=''>  // @LINE:10
+</span>33 <span style=''>  class ReverseAssets(_prefix: =&gt; String) {
+</span>34 <span style=''>
+</span>35 <span style=''>    def _defaultPrefix: String = {
+</span>36 <span style=''>      if (</span><span style='background: #F0ADAD'>_prefix.endsWith(&quot;/&quot;)</span><span style=''>) </span><span style='background: #F0ADAD'>&quot;&quot;</span><span style=''> else </span><span style='background: #F0ADAD'>&quot;/&quot;</span><span style=''>
+</span>37 <span style=''>    }
+</span>38 <span style=''>
+</span>39 <span style=''>  
+</span>40 <span style=''>    // @LINE:10
+</span>41 <span style=''>    def versioned: JavaScriptReverseRoute = </span><span style='background: #F0ADAD'>JavaScriptReverseRoute(
+</span>42 <span style=''></span><span style='background: #F0ADAD'>      &quot;controllers.Assets.versioned&quot;,
+</span>43 <span style=''></span><span style='background: #F0ADAD'>      &quot;&quot;&quot;
+</span>44 <span style=''></span><span style='background: #F0ADAD'>        function(file1) {
+</span>45 <span style=''></span><span style='background: #F0ADAD'>          return _wA({method:&quot;GET&quot;, url:&quot;&quot;&quot;&quot; + _prefix + { _defaultPrefix } + &quot;&quot;&quot;&quot; + &quot;assets/&quot; + (&quot;&quot;&quot; + implicitly[play.api.mvc.PathBindable[Asset]].javascriptUnbind + &quot;&quot;&quot;)(&quot;file&quot;, file1)})
+</span>46 <span style=''></span><span style='background: #F0ADAD'>        }
+</span>47 <span style=''></span><span style='background: #F0ADAD'>      &quot;&quot;&quot;
+</span>48 <span style=''></span><span style='background: #F0ADAD'>    )</span><span style=''>
+</span>49 <span style=''>  
+</span>50 <span style=''>  }
+</span>51 <span style=''>
+</span>52 <span style=''>
+</span>53 <span style=''>}
+</span></pre>
+          </div>
+          <div class="tab-pane" id="statementlist">
+            <table cellspacing="0" cellpadding="0" class="table statementlist">
+      <tr>
+        <th>Line</th>
+        <th>Stmt Id</th>
+        <th>Pos</th>
+        <th>Tree</th>
+        <th>Symbol</th>
+        <th>Tests</th>
+        <th>Code</th>
+      </tr><tr>
+        <td>
+          16
+        </td>
+        <td>
+          32
+        </td>
+        <td>
+          335
+          -
+          338
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          &quot;/&quot;
+        </td>
+      </tr><tr>
+        <td>
+          16
+        </td>
+        <td>
+          29
+        </td>
+        <td>
+          327
+          -
+          329
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          &quot;&quot;
+        </td>
+      </tr><tr>
+        <td>
+          16
+        </td>
+        <td>
+          31
+        </td>
+        <td>
+          335
+          -
+          338
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          &quot;/&quot;
+        </td>
+      </tr><tr>
+        <td>
+          16
+        </td>
+        <td>
+          28
+        </td>
+        <td>
+          304
+          -
+          325
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.String.endsWith
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          ReverseHomeController.this._prefix.endsWith(&quot;/&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          16
+        </td>
+        <td>
+          30
+        </td>
+        <td>
+          327
+          -
+          329
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          &quot;&quot;
+        </td>
+      </tr><tr>
+        <td>
+          21
+        </td>
+        <td>
+          35
+        </td>
+        <td>
+          404
+          -
+          590
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          play.api.routing.JavaScriptReverseRoute.apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          play.api.routing.JavaScriptReverseRoute.apply(&quot;controllers.HomeController.index&quot;, &quot;\n        function() {\n          return _wA({method:\&quot;GET\&quot;, url:\&quot;&quot;.+(ReverseHomeController.this._prefix).+(&quot;\&quot;})\n        }\n      &quot;))
+        </td>
+      </tr><tr>
+        <td>
+          22
+        </td>
+        <td>
+          33
+        </td>
+        <td>
+          434
+          -
+          468
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          &quot;controllers.HomeController.index&quot;
+        </td>
+      </tr><tr>
+        <td>
+          25
+        </td>
+        <td>
+          34
+        </td>
+        <td>
+          476
+          -
+          584
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.String.+
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          &quot;\n        function() {\n          return _wA({method:\&quot;GET\&quot;, url:\&quot;&quot;.+(ReverseHomeController.this._prefix).+(&quot;\&quot;})\n        }\n      &quot;)
+        </td>
+      </tr><tr>
+        <td>
+          36
+        </td>
+        <td>
+          38
+        </td>
+        <td>
+          726
+          -
+          728
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          &quot;&quot;
+        </td>
+      </tr><tr>
+        <td>
+          36
+        </td>
+        <td>
+          40
+        </td>
+        <td>
+          734
+          -
+          737
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          &quot;/&quot;
+        </td>
+      </tr><tr>
+        <td>
+          36
+        </td>
+        <td>
+          37
+        </td>
+        <td>
+          726
+          -
+          728
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          &quot;&quot;
+        </td>
+      </tr><tr>
+        <td>
+          36
+        </td>
+        <td>
+          36
+        </td>
+        <td>
+          703
+          -
+          724
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.String.endsWith
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          ReverseAssets.this._prefix.endsWith(&quot;/&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          36
+        </td>
+        <td>
+          39
+        </td>
+        <td>
+          734
+          -
+          737
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          &quot;/&quot;
+        </td>
+      </tr><tr>
+        <td>
+          41
+        </td>
+        <td>
+          43
+        </td>
+        <td>
+          808
+          -
+          1121
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          play.api.routing.JavaScriptReverseRoute.apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          play.api.routing.JavaScriptReverseRoute.apply(&quot;controllers.Assets.versioned&quot;, &quot;\n        function(file1) {\n          return _wA({method:\&quot;GET\&quot;, url:\&quot;&quot;.+(ReverseAssets.this._prefix).+(ReverseAssets.this._defaultPrefix).+(&quot;\&quot; + \&quot;assets/\&quot; + (&quot;).+(scala.Predef.implicitly[play.api.mvc.PathBindable[controllers.Assets.Asset]](Assets.this.Asset.assetPathBindable(routing.this.ReverseRouteContext.empty)).javascriptUnbind).+(&quot;)(\&quot;file\&quot;, file1)})\n        }\n      &quot;))
+        </td>
+      </tr><tr>
+        <td>
+          42
+        </td>
+        <td>
+          41
+        </td>
+        <td>
+          838
+          -
+          868
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          &quot;controllers.Assets.versioned&quot;
+        </td>
+      </tr><tr>
+        <td>
+          45
+        </td>
+        <td>
+          42
+        </td>
+        <td>
+          876
+          -
+          1115
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.String.+
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          &quot;\n        function(file1) {\n          return _wA({method:\&quot;GET\&quot;, url:\&quot;&quot;.+(ReverseAssets.this._prefix).+(ReverseAssets.this._defaultPrefix).+(&quot;\&quot; + \&quot;assets/\&quot; + (&quot;).+(scala.Predef.implicitly[play.api.mvc.PathBindable[controllers.Assets.Asset]](Assets.this.Asset.assetPathBindable(routing.this.ReverseRouteContext.empty)).javascriptUnbind).+(&quot;)(\&quot;file\&quot;, file1)})\n        }\n      &quot;)
+        </td>
+      </tr>
+    </table>
+          </div>
+        </div>
+      </body>
+    </html>

@@ -1,0 +1,5 @@
+[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\vineet.chauhan\ScalaPro\Play-sonar\conf\application.conf,C:\Users\vineet.chauhan\ScalaPro\Play-sonar\target\scala-2.13\classes\application.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\vineet.chauhan\ScalaPro\Play-sonar\conf\logback.xml,C:\Users\vineet.chauhan\ScalaPro\Play-sonar\target\scala-2.13\classes\logback.xml)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\vineet.chauhan\ScalaPro\Play-sonar\conf\messages,C:\Users\vineet.chauhan\ScalaPro\Play-sonar\target\scala-2.13\classes\messages)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\vineet.chauhan\ScalaPro\Play-sonar\conf\routes,C:\Users\vineet.chauhan\ScalaPro\Play-sonar\target\scala-2.13\classes\routes)[0m

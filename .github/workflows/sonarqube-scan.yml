@@ -9,9 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4  # Checkout should happen first
 
-      - name: Update git config to set /github/workspace as a safe directory
-        run: |
-          git config --global --add safe.directory ${{ github.workspace }}  # Use GitHub workspace path
 
       - name: Set up JDK 17
         uses: actions/setup-java@v3
@@ -28,3 +25,5 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        with:
+          projectBaseDir: ${{ github.workspace }}

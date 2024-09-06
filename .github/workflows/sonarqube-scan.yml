@@ -20,7 +20,4 @@ jobs:
         run: sbt clean compile coverage test coverageReport
 
       - name: SonarQube Scan
-        uses: pervasive-cats/sonarcloud-scoverage-fix@v1.0.0
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        run: sbt clean coverage test sonarScan -D"sonar.login=${{secrets.SONAR_TOKEN}}" -D"sonar.host.url= ${{ secrets.SONAR_HOST_URL }}"

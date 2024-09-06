@@ -17,22 +17,15 @@ jobs:
           distribution: 'temurin'
           cache: sbt
 
-      - name: Run SBT build and tests
-        run: sbt clean compile coverage test coverageReport
-
       - name: Install SonarQube Scanner
         run: |
-          wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
-          unzip sonar-scanner-cli-5.0.1.3006-linux.zip
-          mv sonar-scanner-5.0.1.3006-linux sonar-scanner
-          echo "SONAR_SCANNER=$(pwd)/sonar-scanner/bin/sonar-scanner" >> $GITHUB_ENV
-          echo "SONAR_PATH=$(pwd)/sonar-scanner/bin" >> $GITHUB_ENV
+          wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.7.0.2747-linux.zip
+          unzip sonar-scanner-cli-4.7.0.2747-linux.zip
+          mv sonar-scanner-4.7.0.2747-linux sonar-scanner
+          echo "PATH=$(pwd)/sonar-scanner/bin:$PATH" >> $GITHUB_ENV
 
-      - name: Set Java 17 for SonarQube Scanner
-        run: |
-          export JAVA_HOME=/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.12-7/x64
-          export PATH="$JAVA_HOME/bin:$PATH"
-          java -version  # Verify Java 17 is being used
+      - name: Run SBT build and tests
+        run: sbt clean compile coverage test coverageReport
 
       - name: Run SonarQube Scanner manually
         run: |

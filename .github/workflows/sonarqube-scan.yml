@@ -5,9 +5,11 @@ on: push
 jobs:
   sonar_scan:
     runs-on: ubuntu-latest
-    run: |
-       git config --global --add safe.directory /github/workspace
+
     steps:
+      - name: Update git config to set /github/workspace as a safe directory
+        run: |
+           git config --global --add safe.directory /github/workspace
       - uses: actions/checkout@v4
 
 

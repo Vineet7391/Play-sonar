@@ -32,4 +32,17 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      - name: Check SonarQube quality gate
+        if: steps.sonarqube.outputs.status == 'ERROR'
+        run: echo "SonarQube Quality Gate failed!"
+
+      - name: Post comment on PR
+        if: ${{ github.event_name == 'pull_request' }}
+        run: |
+          curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+               -X POST \
+               -d '{"body": "SonarQube Quality Gate Status: ${{ steps.sonarqube.outputs.status }}"}' \
+               https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments
+
+      
           

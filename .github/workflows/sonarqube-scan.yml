@@ -18,8 +18,8 @@ jobs:
 
       - name: Run SonarQube Analysis
         run:  sbt clean compile coverage test coverageReport
-#      - name: Replace all working directory paths with sources path
-#        run: sed -i -e "s#${{ github.workspace }}#/github/workspace#g" $(grep -rl "${{ github.workspace }}" .)
+      - name: Replace all working directory paths with sources path
+        run: sed -i -e "s#${{ github.workspace }}#/github/workspace#g" $(grep -rl "${{ github.workspace }}" .)
       - name: SonarQube Scan
         uses: sonarsource/sonarcloud-github-action@master
         env:

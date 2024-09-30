@@ -22,7 +22,9 @@ jobs:
 
       - name: Run CustomSonar Action
         uses: Vineet7391/CustomSonar@main
-        
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          
       - name: SonarQube Scan
         uses: sonarsource/sonarcloud-github-action@master
         env:

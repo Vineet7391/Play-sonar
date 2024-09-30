@@ -21,7 +21,7 @@ jobs:
         run: sed -i -e "s#${{ github.workspace }}#/github/workspace#g" $(grep -rl "${{ github.workspace }}" .)
 
       - name: Run CustomSonar Action
-        uses: Vineet7391/CustomSonar@v1.1.0
+        uses: Vineet7391/CustomSonar@main
         
       - name: SonarQube Scan
         uses: sonarsource/sonarcloud-github-action@master

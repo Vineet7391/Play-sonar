@@ -16,12 +16,7 @@ jobs:
           cache: sbt
           
       - name: Run SonarQube Analysis
-        run:  sbt clean compile coverage test coverageReport
-        
-      - name: Authenticate to access private GitHub Action
-        run: echo "${{ secrets.GIT_TOKEN }}" | gh auth login --with-token
-        env:
-          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+        run:  sbt clean compile coverage test coverageReport       
           
       - name: Run CustomSonar Action
         uses: Vineet7391/CustomSonar@main
@@ -30,5 +25,6 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
 
           

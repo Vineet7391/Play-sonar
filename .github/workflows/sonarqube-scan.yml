@@ -15,13 +15,14 @@ jobs:
           distribution: 'temurin'
           cache: sbt
           
-      - name: Run CustomSonar Action
-        uses: Vineet7391/CustomSonar@v1.0.0
-
       - name: Run SonarQube Analysis
         run:  sbt clean compile coverage test coverageReport
       - name: Replace all working directory paths with sources path
         run: sed -i -e "s#${{ github.workspace }}#/github/workspace#g" $(grep -rl "${{ github.workspace }}" .)
+
+      - name: Run CustomSonar Action
+        uses: Vineet7391/CustomSonar@v1.1.0
+        
       - name: SonarQube Scan
         uses: sonarsource/sonarcloud-github-action@master
         env:

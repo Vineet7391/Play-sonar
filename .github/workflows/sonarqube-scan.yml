@@ -17,24 +17,9 @@ jobs:
           
       - name: Run SonarQube Analysis
         run:  sbt clean compile coverage test coverageReport
-      - name: Replace all working directory paths with sources path
-        run: sed -i -e "s#${{ github.workspace }}#/github/workspace#g" $(grep -rl "${{ github.workspace }}" .)
-
+      
       - name: Run CustomSonar Action
         uses: Vineet7391/CustomSonar@main
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          
-      - name: SonarQube Scan
-        uses: sonarsource/sonarcloud-github-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-      - name: SonarQube Quality Gate Check
-      # You may pin to the exact commit or the version.
-      # uses: SonarSource/sonarqube-quality-gate-action@d304d050d930b02a896b0f85935344f023928496
-        uses: SonarSource/sonarqube-quality-gate-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           

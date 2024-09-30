@@ -20,7 +20,9 @@ jobs:
       
       - name: Run CustomSonar Action
         uses: Vineet7391/CustomSonar@main
+        with: 
+           scoverageReport: 'target/scala-2.13/scoverage-report/scoverage.xml'
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          scoverageReport: 'target/scala-2.13/scoverage-report/scoverage.xml'
+
           

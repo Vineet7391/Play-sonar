@@ -14,7 +14,9 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: sbt
-
+          
+      - name: Run CustomSonar Action
+        uses: Vineet7391/CustomSonar@v1.0.0
 
       - name: Run SonarQube Analysis
         run:  sbt clean compile coverage test coverageReport

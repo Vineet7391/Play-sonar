@@ -22,9 +22,7 @@ jobs:
         run:  sbt clean compile coverage test coverageReport       
           
       - name: Run CustomSonar Action
-        uses: Vineet7391/CustomSonar@main
-        with: 
-           scoverageReport: 'target/scala-2.13/scoverage-report/scoverage.xml'
+        uses: Vineet7391/CustomSonar@main        
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}

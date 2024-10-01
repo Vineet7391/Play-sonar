@@ -16,6 +16,10 @@ jobs:
           distribution: 'temurin'
           cache: sbt
 
+      # Explicitly set JAVA_HOME to JDK 17
+      - name: Set JAVA_HOME for SonarScanner
+        run: echo "JAVA_HOME is $JAVA_HOME"
+
       - name: Run CustomSonar Action
         uses: Vineet7391/HelloSonar@main
         
@@ -28,3 +32,4 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+          JAVA_HOME: /usr/lib/jvm/temurin-17-jdk # Explicitly setting JAVA_HOME for SonarScanner

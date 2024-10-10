@@ -24,7 +24,7 @@ jobs:
         uses: Vineet7391/HelloSonar@main
         
       - name: Run SonarQube Analysis
-        run: sbt clean compile coverage test coverageReport       
+        run: sbt clean test coverageReport       
           
       - name: Run CustomSonar Action
         uses: Vineet7391/CustomSonar@main        
